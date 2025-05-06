@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro de Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="formulario" (ngSubmit)="guardarDatos()">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha de Nacimiento</ion-label>
+      <ion-datetime displayFormat="YYYY-MM-DD" formControlName="fechaNacimiento"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Género</ion-label>
+      <ion-select formControlName="genero">
+        <ion-select-option value="masculino">Masculino</ion-select-option>
+        <ion-select-option value="femenino">Femenino</ion-select-option>
+        <ion-select-option value="otro">Otro</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Teléfono</ion-label>
+      <ion-input type="tel" formControlName="telefono"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Especialidades</ion-label>
+      <ion-select formControlName="especialidades" multiple="true">
+        <ion-select-option value="cardiologia">Cardiología</ion-select-option>
+        <ion-select-option value="dermatologia">Dermatología</ion-select-option>
+        <ion-select-option value="pediatria">Pediatría</ion-select-option>
+        <ion-select-option value="neurologia">Neurología</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Dirección</ion-label>
+      <ion-textarea formControlName="direccion"></ion-textarea>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>Acepto los términos</ion-label>
+      <ion-checkbox slot="start" formControlName="terminos"></ion-checkbox>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!formulario.valid">
+      Guardar Datos
+    </ion-button>
+  </form>
+</ion-content>
